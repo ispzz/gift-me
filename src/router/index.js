@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import firebase from 'firebase'
+
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
-import firebase from 'firebase'
+import Wishlist from '../views/Wishlist.vue'
+import New from '../views/New.vue';
+import Show from '../views/Show.vue';
+import Edit from '../views/Edit.vue';
 
 Vue.use(Router)
 
@@ -67,6 +72,26 @@ Vue.use(Router)
       path: '/sign-up',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/wishlist',
+      name: 'wishlist',
+      component: Wishlist
+    },
+    {
+      path: '/wishlist/new',
+      name: 'new-words',
+      component: New
+    },
+    {
+      path: '/wishlist/:id',
+      name: 'show',
+      component: Show
+    },
+    {
+      path: '/wishlist/:id/edit',
+      name: 'edit',
+      component: Edit
     }
 ]
 

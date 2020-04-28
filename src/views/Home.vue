@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>welcome x2</h1>
+    <h1>welcome</h1>
     <button @click="logout">Logout</button>
   </div>
 </template>

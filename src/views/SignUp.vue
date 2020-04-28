@@ -23,7 +23,23 @@
     methods: {
       signUp: function() {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-          () => {
+          (userCreate) => {
+            // get user data
+            const userData = userCreate.user
+            const userUID = userData.uid;
+            const email = this.email;
+
+            console.log(userUID);
+            console.log(email);
+
+            // set up user collection
+            const account = {
+              useruid: userUID,
+              wishlist: {}
+            }
+
+            firebase.firestore().collection('accounts').doc(userUID).set(account);
+
             this.$router.replace('home')
           },
           (err) => {

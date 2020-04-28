@@ -9,6 +9,7 @@ import Wishlist from '../views/Wishlist.vue'
 import New from '../views/New.vue';
 import Show from '../views/Show.vue';
 import Edit from '../views/Edit.vue';
+import Todos from '../components/Todos.vue';
 
 Vue.use(Router)
 
@@ -83,7 +84,7 @@ Vue.use(Router)
     },
     {
       path: '/wishlist/new',
-      name: 'new-words',
+      name: 'new-item',
       component: New,
       meta: {
         requiresAuth: true
@@ -103,6 +104,14 @@ Vue.use(Router)
       component: Edit,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: '/todo',
+      name: 'Todos',
+      component: Todos,
+      meta: {
+          requiresAuth: true
       }
     }
 ]

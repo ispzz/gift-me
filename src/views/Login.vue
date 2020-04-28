@@ -23,7 +23,7 @@
       login: function() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           () => {
-            this.$router.replace('home')
+            this.$router.replace('wishlist')
           },
           (err) => {
             alert('Whoopsies. ' +err.message)

@@ -40,7 +40,7 @@
 
             firebase.firestore().collection('accounts').doc(userUID).set(account);
 
-            this.$router.replace('home')
+            this.$router.replace('wishlist')
           },
           (err) => {
             alert('Whoopsies. ' +err.message)

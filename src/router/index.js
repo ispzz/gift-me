@@ -76,22 +76,34 @@ Vue.use(Router)
     {
       path: '/wishlist',
       name: 'wishlist',
-      component: Wishlist
+      component: Wishlist,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/wishlist/new',
       name: 'new-words',
-      component: New
+      component: New,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/wishlist/:id',
       name: 'show',
-      component: Show
+      component: Show,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/wishlist/:id/edit',
       name: 'edit',
-      component: Edit
+      component: Edit,
+      meta: {
+        requiresAuth: true
+      }
     }
 ]
 

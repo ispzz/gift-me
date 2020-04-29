@@ -1,9 +1,9 @@
 <template>
   <div >
     <h1>Plz buy for me <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/face-with-pleading-eyes_1f97a.png" alt="plz"> </h1>
-    <p>{{name}}</p>
-    <p>{{image}}</p>
-    <p>{{itemurl}}</p>
+    <p>{{wishlist.name}}</p>
+    <img :src="wishlist.image" />
+    <p>{{wishlist.itemurl}}</p>
   </div>
 </template>
 
@@ -13,28 +13,36 @@
     name: 'show',
     data() {
       return {
-          name: "",
-          image: "",
-          itemurl: ""
+        wishlist: {}
     }
   },
-  async mounted() {
-    const id = this.$route.params.id;
-    const wishlistRef = await firebase
-        .firestore()
-        .collection("accounts")
-        .doc(firebase.auth().currentUser.uid)
-        .collection("wishlists")
-        .doc(id);
-
-    wishlistRef.onSnapshot(snap => {
-      snap.forEach(doc => {
-        this.name = doc.data().name;
-        this.image = doc.data().image;
-        this.itemurl = doc.data().itemurl;
-      });
-    });
+  created() {
+    this.fetchData()
+  },
+  watch: {
+    "$route" : "fetchData"
+  },
+  methods: {
+    async fetchData() {
+      const id = this.$route.params.id;
+      await firebase
+          .firestore()
+          .collection("accounts")
+          .doc(firebase.auth().currentUser.uid)
+          .collection("wishlists")
+          .doc(id)
+          .onSnapshot(snap => {
+            this.wishlist = {
+              name: snap.data().name,
+              image: snap.data().image,
+              itemurl: snap.data().itemurl
+            };
+            console.log(snap.data());
+            console.log(snap.data().name);
+          });
+    }
   }
+
   // created() {
   //   this.getGift();
   // },

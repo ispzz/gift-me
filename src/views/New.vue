@@ -65,12 +65,7 @@
         }, error=>{console.log(error.message)},
         ()=>{this.uploadValue=100;
           storageRef.snapshot.ref.getDownloadURL().then((url)=>{
-            this.picture =url;
-          });
-        }
-        );
-      },
-      addGift() {
+            this.picture = url;
             firebase
               .firestore()
               .collection("accounts")
@@ -80,14 +75,35 @@
                   name: this.wishlist.name,
                   image: this.wishlist.image,
                   itemurl: this.wishlist.itemurl,
+                  imageURL: this.picture,
                   createdAt: new Date(),
                   isBought: false
               })
               .then(
                 () => console.log("hopefully it's done")
               )
-              .catch(error => console.log(error))
-      }
+          });
+        }
+        );
+      },
+      // addGift() {
+      //       firebase
+      //         .firestore()
+      //         .collection("accounts")
+      //         .doc(firebase.auth().currentUser.uid)
+      //         .collection("wishlists")
+      //         .add({
+      //             name: this.wishlist.name,
+      //             image: this.wishlist.image,
+      //             itemurl: this.wishlist.itemurl,
+      //             createdAt: new Date(),
+      //             isBought: false
+      //         })
+      //         .then(
+      //           () => console.log("hopefully it's done")
+      //         )
+      //         .catch(error => console.log(error))
+      // }
     }
   }
 </script>

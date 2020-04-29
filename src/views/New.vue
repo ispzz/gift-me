@@ -1,8 +1,13 @@
 <template>
-  <form action="#" @submit.prevent="addGift">
+  <form action="#" @submit.prevent="onUpload">
     <div class="ui labeled input fluid">
       <div class="ui label">Name:</div>
       <input type="text" placeholder="what do you want bby grl?" v-model="wishlist.name"/>
+    </div>
+
+    <div class="ui labeled input fluid">
+      <div class="ui label">Buy it Link</div>
+      <input type="text" placeholder="give us that link bb" v-model="wishlist.itemurl"/>
     </div>
 
     <div class="ui labeled input fluid">
@@ -15,20 +20,8 @@
     </div>
     <div v-if="imageData!=null">
         <img class="preview" :src="picture">
-        <br>
-      <button @click="onUpload">Upload</button>
     </div>
 
-
-    <div class="ui labeled input fluid">
-      <div class="ui label">Photo URL thnx:</div>
-      <input type="text" placeholder="ty" v-model="wishlist.image"/>
-    </div>
-
-    <div class="ui labeled input fluid">
-      <div class="ui label">Buy it Link</div>
-      <input type="text" placeholder="give us that link bb" v-model="wishlist.itemurl"/>
-    </div>
     <button class="positive ui button">Submit</button>
     <router-link to="/">Cancel</router-link>
   </form>
@@ -73,15 +66,14 @@
               .collection("wishlists")
               .add({
                   name: this.wishlist.name,
-                  image: this.wishlist.image,
+                  image: this.picture,
                   itemurl: this.wishlist.itemurl,
-                  imageURL: this.picture,
                   createdAt: new Date(),
                   isBought: false
               })
               .then(
                 () => console.log("hopefully it's done")
-              )
+              ).catch(error => console.log(error))
           });
         }
         );

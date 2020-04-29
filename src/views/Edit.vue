@@ -11,6 +11,10 @@
     </div>
 
     <div class="ui labeled input fluid">
+      <img :src="wishlist.image" />
+    </div>
+
+    <div class="ui labeled input fluid">
       <div class="ui label">Find Image:</div>
       <input type="file" @change="previewImage" accept="image/*" >
     </div>
@@ -36,8 +40,7 @@
         wishlist: {
           name: "",
           image: "",
-          itemurl: "",
-          imageName: ""
+          itemurl: ""
         },
         imageData: null,
         picture: null,
@@ -72,11 +75,7 @@
       },
       previewImage(event) {
         this.uploadValue=0;
-        if (this.picture) {
-          return
-        } else {
-          this.picture=null;
-        }
+        this.picture=null;
         this.imageData = event.target.files[0];
       },
       updateWish() {
@@ -97,7 +96,7 @@
               .doc(id)
               .update({
                 name: this.wishlist.name,
-                image: this.wishlist.image,
+                image: this.picture,
                 itemurl: this.wishlist.itemurl,
                 imageName: this.wishlist.imageName
               }).then(() => {

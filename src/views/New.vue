@@ -37,8 +37,7 @@
         wishlist: {
           name: "",
           image: "",
-          itemurl: "",
-          imageName: ""
+          itemurl: ""
         },
         imageData: null,
         picture: null,

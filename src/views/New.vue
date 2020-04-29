@@ -67,6 +67,7 @@
               .add({
                   name: this.wishlist.name,
                   image: this.picture,
+                  imageName: this.imageData.name,
                   itemurl: this.wishlist.itemurl,
                   createdAt: new Date(),
                   isBought: false

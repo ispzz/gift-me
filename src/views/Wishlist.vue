@@ -1,7 +1,7 @@
 <template>
   <div>
    <h1> welcome to your Wishlist</h1>
-   <button class="positive ui button">SHARE</button>
+   <button class="positive ui button" @click="shareWishlist">SHARE</button>
    <table id="words" class="ui celled compact table">
      <thead>
        <tr>
@@ -71,6 +71,15 @@
             .collection("wishlists")
             .doc(docId)
             .delete();
+      },
+      shareWishlist() {
+        // firebase
+        //   .firestore()
+        //   .collection("accounts")
+        //   .doc(firebase.auth().currentUser.uid)
+        //   .add({
+        //
+        //   })
       }
     }
   }

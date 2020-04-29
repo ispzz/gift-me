@@ -4,6 +4,9 @@
     <p>{{wishlist.name}}</p>
     <img :src="wishlist.image" />
     <p>{{wishlist.itemurl}}</p>
+    <router-link :to="{ name: 'edit', params: { id: this.$route.params.id }}">
+        Edit word
+      </router-link>
   </div>
 </template>
 
@@ -42,15 +45,6 @@
           });
     }
   }
-
-  // created() {
-  //   this.getGift();
-  // },
-  // methods: {
-  //   async getGift() {
-  //     await firebase.firestore().collection("accounts").doc(firebase.auth().currentUser.uid).collection("wishlists").doc(this.$route.params.id).get().then
-  //   }
-  // }
 }
 </script>
 

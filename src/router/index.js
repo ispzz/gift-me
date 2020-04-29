@@ -13,40 +13,6 @@ import Todos from '../components/Todos.vue';
 
 Vue.use(Router)
 
-// export default new Router({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   linkActiveClass: 'active',
-//   routes: [
-//     {
-//       path: '*', // redirects bad urls back to login
-//       redirect: '/login'
-//     },
-//     {
-//       path: '/',
-//       redirect: '/login'
-//     },
-//     {
-//       path: '/home',
-//       name: 'Home',
-//       component: Home,
-//       meta: {
-//         requiresAuth: true
-//       }
-//     },
-//     {
-//       path: '/login',
-//       name: 'Login',
-//       component: Login
-//     },
-//     {
-//       path: '/sign-up',
-//       name: 'SignUp',
-//       component: SignUp
-//     }
-//   ]
-// });
-
   const routes = [
     {
       path: '*', // redirects bad urls back to login

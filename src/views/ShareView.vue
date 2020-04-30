@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
    <h1> I like it..</h1>
    <table id="words" class="ui celled compact table">
      <thead>
@@ -30,6 +30,9 @@
        </tr>
      </tbody>
    </table>
+ </div> -->
+ <div class="card">
+
  </div>
 </template>
 

@@ -31,9 +31,30 @@
      </tbody>
    </table>
  </div> -->
- <div class="card">
-
- </div>
+ <section class="section">
+   <div class="wrapper">
+     <div class="card" v-for="wishlist in wishlists" :key="wishlist.id">
+       <header class="card-header">
+        <p class="card-header-title is-centered">
+          {{wishlist.name}}
+        </p>
+      </header>
+       <div class="card-image">
+        <figure class="image is-4by3">
+          <img :src="wishlist.image" />
+        </figure>
+      </div>
+      <footer class="card-footer">
+        <a class="card-footer-item">
+          <router-link :to="{ name: 'show', params: { id: wishlist.id } }">
+            View
+          </router-link>
+        </a>
+        <a :href="'//' + wishlist.itemurl" class="card-footer-item">Buy</a>
+      </footer>
+     </div>
+   </div>
+ </section>
 </template>
 
 <script>
@@ -80,4 +101,12 @@
 </script>
 
 <style scoped>
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-gap: 6vh;
+  }
+  .card {
+	height: max-content;
+  }
 </style>

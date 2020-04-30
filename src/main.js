@@ -7,8 +7,6 @@ import 'buefy/dist/buefy.css'
 
 Vue.use(Buefy)
 
-import 'semantic-ui-css/semantic.css';
-
 Vue.config.productionTip = false;
 
 let app = '';

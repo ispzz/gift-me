@@ -1,7 +1,7 @@
 <template>
   <div>
    <h1> welcome to your Wishlist</h1>
-   <button class="positive ui button" @click="visible = !visible">SHARE</button>
+   <b-button type="is-primary" outlined @click="visible = !visible">SHARE</b-button>
    <div v-if="visible">
      <p @click="shareWishlist">click me</p>
      <p>{{shareUserId}}</p>

@@ -1,29 +1,30 @@
 <template>
   <form action="#" @submit.prevent="onUpload">
-    <div class="ui labeled input fluid">
-      <div class="ui label">Name:</div>
-      <input type="text" placeholder="what do you want bby grl?" v-model="wishlist.name"/>
-    </div>
+    <section>
+      <b-field label="Name" custom-class="is-large">
+        <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" size="is-large" rounded/>
+      </b-field>
 
-    <div class="ui labeled input fluid">
-      <div class="ui label">Buy it Link</div>
-      <input type="text" placeholder="give us that link bb" v-model="wishlist.itemurl"/>
-    </div>
+      <b-field label="Url of the item" custom-class="is-large">
+        <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" size="is-large" rounded/>
+      </b-field>
 
-    <div class="ui labeled input fluid">
-      <div class="ui label">Find Image:</div>
-      <input type="file" @change="previewImage" accept="image/*" >
-    </div>
-    <div class="ui labeled input fluid">
-      <p>Progress: {{uploadValue.toFixed()+"%"}}
-      <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
-    </div>
-    <div v-if="imageData!=null">
-        <img class="preview" :src="picture">
-    </div>
+      <b-field label="Find Image">
+        <input type="file" @change="previewImage" accept="image/*" >
+      </b-field>
 
-    <button class="positive ui button">Submit</button>
-    <router-link to="/">Cancel</router-link>
+      <b-field>
+        <p>Progress: {{uploadValue.toFixed()+"%"}}
+        <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
+      </b-field>
+
+      <div v-if="imageData!=null">
+          <img class="preview" :src="picture">
+      </div>
+
+      <button class="positive ui button">Submit</button>
+      <router-link to="/">Cancel</router-link>
+    </section>
   </form>
 </template>
 
@@ -73,7 +74,8 @@
                   isBought: false
               })
               .then(
-                () => console.log("hopefully it's done")
+                () => console.log("hopefully it's done"),
+                this.$router.push('/wishlist')
               ).catch(error => console.log(error))
           });
         }

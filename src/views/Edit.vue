@@ -1,34 +1,37 @@
 <template>
-  <form action="#" @submit.prevent="updateWish">
-    <div class="ui labeled input fluid">
-      <div class="ui label">Name:</div>
-      <input type="text" placeholder="what do you want bby grl?" v-model="wishlist.name"/>
-    </div>
+  <div class="centeredContainer">
+    <section class="section">
+      <b-button type="is-primary" @click="logout" rounded>Logout</b-button>
+      <h1 class="title">Edit</h1>
+      <div class="box has-text-centered">
+      <form action="#" @submit.prevent="updateWish">
+          <b-field label="Name" custom-class="is-large">
+            <b-input :value="wishlist.name" v-model="wishlist.name" rounded/>
+          </b-field>
 
-    <div class="ui labeled input fluid">
-      <div class="ui label">Buy it Link</div>
-      <input type="text" placeholder="give us that link bb" v-model="wishlist.itemurl"/>
-    </div>
+          <b-field label="Url of the item" custom-class="is-large">
+            <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
+          </b-field>
 
-    <div class="ui labeled input fluid">
-      <img :src="wishlist.image" />
-    </div>
+          <b-field label="Find Image">
+            <input type="file" @change="previewImage" accept="image/*" >
+          </b-field>
 
-    <div class="ui labeled input fluid">
-      <div class="ui label">Find Image:</div>
-      <input type="file" @change="previewImage" accept="image/*" >
-    </div>
-    <div class="ui labeled input fluid">
-      <p>Progress: {{uploadValue.toFixed()+"%"}}
-      <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
-    </div>
-    <div v-if="imageData!=null">
-        <img class="preview" :src="picture">
-    </div>
+          <b-field>
+            <p>Progress: {{uploadValue.toFixed()+"%"}}
+            <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
+          </b-field>
 
-    <button class="positive ui button">Submit</button>
-    <router-link to="/">Cancel</router-link>
-  </form>
+          <div v-if="imageData!=null">
+              <img class="preview" :src="picture">
+          </div>
+
+          <b-button type="is-primary" rounded>Submit</b-button><br/>
+          <router-link to="/wishlist">Return</router-link>
+      </form>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -126,4 +129,17 @@
 </script>
 
 <style scoped>
+img.preview {
+  width: 200px;
+}
+.section {
+  width: 40vw;
+  text-align: center;
+}
+.centeredContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>

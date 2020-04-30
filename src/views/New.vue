@@ -1,35 +1,37 @@
 <template>
-<section class="section">
-  <b-button type="is-primary" @click="logout">Logout</b-button>
-  <h1 class="title">Add a new gift for yourself</h1>
-  <div class="box has-text-centered">
-  <form action="#" @submit.prevent="onUpload">
-      <b-field label="Name" custom-class="is-large">
-        <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" rounded/>
-      </b-field>
+  <div class="centeredContainer">
+    <section class="section">
+      <b-button type="is-primary" @click="logout" rounded>Logout</b-button>
+      <h1 class="title">Add a new gift for yourself</h1>
+      <div class="box has-text-centered">
+      <form action="#" @submit.prevent="onUpload">
+          <b-field label="Name" custom-class="is-large">
+            <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" rounded/>
+          </b-field>
 
-      <b-field label="Url of the item" custom-class="is-large">
-        <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
-      </b-field>
+          <b-field label="Url of the item" custom-class="is-large">
+            <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
+          </b-field>
 
-      <b-field label="Find Image">
-        <input type="file" @change="previewImage" accept="image/*" >
-      </b-field>
+          <b-field label="Find Image">
+            <input type="file" @change="previewImage" accept="image/*" >
+          </b-field>
 
-      <b-field>
-        <p>Progress: {{uploadValue.toFixed()+"%"}}
-        <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
-      </b-field>
+          <b-field>
+            <p>Progress: {{uploadValue.toFixed()+"%"}}
+            <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
+          </b-field>
 
-      <div v-if="imageData!=null">
-          <img class="preview" :src="picture">
+          <div v-if="imageData!=null">
+              <img class="preview" :src="picture">
+          </div>
+
+          <b-button type="is-primary" rounded>Submit</b-button><br/>
+          <router-link to="/wishlist">Return</router-link>
+      </form>
       </div>
-
-      <b-button type="is-primary" rounded>Submit</b-button><br/>
-      <router-link to="/wishlist">Return</router-link>
-  </form>
+    </section>
   </div>
-</section>
 </template>
 
 <script>
@@ -119,5 +121,11 @@ img.preview {
 .section {
   width: 40vw;
   text-align: center;
+}
+.centeredContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>

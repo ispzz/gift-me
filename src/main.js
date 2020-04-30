@@ -1,8 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 import firebase from 'firebase';
-import Buefy from 'buefy'
+import Buefy from 'buefy';
+import Clipboard from 'v-clipboard';
+
+Vue.use(Clipboard)
+
+
 import 'buefy/dist/buefy.css'
 
 Vue.use(Buefy)

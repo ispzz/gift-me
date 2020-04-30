@@ -39,13 +39,22 @@
    </table>
  </div> -->
  <section>
-   <b-button type="is-primary" @click="logout">Logout</b-button>
-   <h1 class="title">What you like ...</h1>
+   <b-button type="is-primary" @click="logout" rounded>Logout</b-button>
+
+   <h1 class="title">Your Wishlist</h1>
+
    <div class="box has-text-centered">
    <b-button size="is-medium" type="is-primary" outlined @click="visible = !visible" rounded>SHARE</b-button>
    <div v-if="visible">
-     <p @click="shareWishlist">click me</p>
-     <p>{{shareUserId}}</p>
+     <div class="copyField">
+       <b-field position="is-centered">
+              <b-input :value="'https://buy-it-plz.web.app/share-view/' + shareUserId" type="search" icon="magnify" rounded>
+              </b-input>
+              <p class="control">
+                  <b-button v-clipboard="value" type="is-primary" rounded outlined>Copy</b-button>
+              </p>
+          </b-field>
+     </div>
     <router-link :to="{ name: 'ShareView', params: { id: this.shareUserId } }">
        View
      </router-link>
@@ -163,5 +172,8 @@
   }
   .title {
     text-align: center;
+  }
+  .copyField {
+    padding: 2em;
   }
 </style>

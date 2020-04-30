@@ -1,39 +1,33 @@
 <template>
-  <!-- <div class="sign-up">
-    <p>Let's create a new account!</p>
-    <input type="text" v-model="email" placeholder="Email"><br />
-    <input type="password" v-model="password" placeholder="password"><br />
-    <button @click="signUp">Sign Up!</button><br />
-    <span>... or go back to <router-link to="/login">login</router-link></span>
-  </div> -->
+  <div class="centeredContainer">
+    <section class="section">
+      <div class="box has-text-centered">
+        <h1 class="title">Let's create a new account!</h1>
+        <b-notification
+              v-if="errorsPresent"
+              type="is-danger"
+              aria-close-label="Close notification"
+              role="alert">
+              {{errorMessage}}
+          </b-notification>
 
-  <section class="section">
-    <div class="box has-text-centered">
-      <h1 class="title">Let's create a new account!</h1>
-      <b-notification
-            v-if="errorsPresent"
-            type="is-danger"
-            aria-close-label="Close notification"
-            role="alert">
-            {{errorMessage}}
-        </b-notification>
+        <b-field label="Display Name">
+          <b-input v-model="displayName" placeholder="Tom Nook" rounded></b-input>
+        </b-field>
 
-      <b-field label="Display Name">
-        <b-input v-model="displayName" placeholder="Tom Nook" rounded></b-input>
-      </b-field>
+        <b-field label="Email">
+          <b-input v-model="email" placeholder="...@gmail.com" rounded></b-input>
+        </b-field>
 
-      <b-field label="Email">
-        <b-input v-model="email" placeholder="...@gmail.com" rounded></b-input>
-      </b-field>
+        <b-field label="Password">
+          <b-input v-model="password" type="password" placeholder="password" rounded></b-input>
+        </b-field>
 
-      <b-field label="Password">
-        <b-input v-model="password" type="password" placeholder="password" rounded></b-input>
-      </b-field>
-
-      <b-button size="is-medium" @click="signUp" type="is-primary" rounded>Create</b-button>
-      <p><span>... or go back to <router-link to="/login">login</router-link></span></p>
-    </div>
-  </section>
+        <b-button size="is-medium" @click="signUp" type="is-primary" rounded>Create</b-button>
+        <p><span>... or go back to <router-link to="/login">login</router-link></span></p>
+      </div>
+    </section>
+  </div>
 
 </template>
 
@@ -101,5 +95,11 @@
 .section {
   width: 40vw;
   text-align: center;
+}
+.centeredContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>

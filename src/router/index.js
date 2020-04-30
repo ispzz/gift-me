@@ -9,6 +9,7 @@ import Wishlist from '../views/Wishlist.vue'
 import New from '../views/New.vue';
 import Show from '../views/Show.vue';
 import Edit from '../views/Edit.vue';
+import ShareView from '../views/ShareView .vue';
 import Todos from '../components/Todos.vue';
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ Vue.use(Router)
       path: '/sign-up',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/share-view/:id',
+      name: 'ShareView',
+      component: ShareView
     },
     {
       path: '/wishlist',

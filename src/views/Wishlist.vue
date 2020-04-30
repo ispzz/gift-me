@@ -55,6 +55,8 @@
           wishlistsRef.onSnapshot(snap => {
               this.wishlists = [];
               snap.forEach(doc => {
+                console.log(doc.data());
+                console.log(this.wishlists);
                   var wishlist = doc.data();
                   wishlist.id = doc.id;
                   this.wishlists.push(wishlist);

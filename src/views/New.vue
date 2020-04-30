@@ -1,12 +1,15 @@
 <template>
+<section class="section">
+  <b-button type="is-primary" @click="logout">Logout</b-button>
+  <h1 class="title">Add a new gift for yourself</h1>
+  <div class="box has-text-centered">
   <form action="#" @submit.prevent="onUpload">
-    <section>
       <b-field label="Name" custom-class="is-large">
-        <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" size="is-large" rounded/>
+        <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" rounded/>
       </b-field>
 
       <b-field label="Url of the item" custom-class="is-large">
-        <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" size="is-large" rounded/>
+        <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
       </b-field>
 
       <b-field label="Find Image">
@@ -15,17 +18,18 @@
 
       <b-field>
         <p>Progress: {{uploadValue.toFixed()+"%"}}
-        <progress id="progress" :value="uploadValue" max="100" ></progress>  </p>
+        <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
       </b-field>
 
       <div v-if="imageData!=null">
           <img class="preview" :src="picture">
       </div>
 
-      <button class="positive ui button">Submit</button>
-      <router-link to="/">Cancel</router-link>
-    </section>
+      <b-button type="is-primary" rounded>Submit</b-button><br/>
+      <router-link to="/wishlist">Return</router-link>
   </form>
+  </div>
+</section>
 </template>
 
 <script>
@@ -81,6 +85,11 @@
         }
         );
       },
+      logout: function() {
+        firebase.auth().signOut().then(() => {
+          this.$router.replace('login')
+        })
+      }
       // addGift() {
       //       firebase
       //         .firestore()
@@ -106,5 +115,9 @@
 <style scoped>
 img.preview {
   width: 200px;
+}
+.section {
+  width: 40vw;
+  text-align: center;
 }
 </style>

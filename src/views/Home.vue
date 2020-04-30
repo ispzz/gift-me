@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>welcome</h1>
-    <button @click="logout">Logout</button>
+    <b-button type="is-primary" @click="logout">Logout</b-button>
   </div>
 </template>
 

@@ -32,6 +32,7 @@
    </table>
  </div> -->
  <section class="section">
+   <h1 class="title">I like it ...</h1>
    <div class="wrapper">
      <div class="card" v-for="wishlist in wishlists" :key="wishlist.id">
        <header class="card-header">
@@ -108,5 +109,9 @@
   }
   .card {
 	height: max-content;
+  }
+  .title {
+    text-align: center;
+    padding-bottom: 1em;
   }
 </style>

@@ -1,7 +1,14 @@
 <template>
   <div>
    <h1> welcome to your Wishlist</h1>
-   <button class="positive ui button" @click="shareWishlist">SHARE</button>
+   <button class="positive ui button" @click="visible = !visible">SHARE</button>
+   <div v-if="visible">
+     <p @click="shareWishlist">click me</p>
+     <p>{{shareUserId}}</p>
+    <router-link :to="{ name: 'ShareView', params: { id: this.shareUserId } }">
+       View
+     </router-link>
+   </div>
    <table id="words" class="ui celled compact table">
      <thead>
        <tr>
@@ -39,7 +46,9 @@
     name: 'wishlist',
     data() {
       return {
-        wishlists: []
+        wishlists: [],
+        visible: false,
+        shareUserId: null
       }
     },
     created() {
@@ -47,6 +56,7 @@
     },
     methods: {
       async getLists() {
+          this.shareUserId = firebase.auth().currentUser.uid;
           var wishlistsRef = await firebase
               .firestore()
               .collection("accounts")
@@ -75,6 +85,9 @@
             .delete();
       },
       shareWishlist() {
+        const shareUserId2 = firebase.auth().currentUser.uid;
+        console.log(shareUserId2);
+        this.$router.push('share-view/' + shareUserId2);
         // firebase
         //   .firestore()
         //   .collection("accounts")

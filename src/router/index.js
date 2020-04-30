@@ -9,16 +9,16 @@ import Wishlist from '../views/Wishlist.vue'
 import New from '../views/New.vue';
 import Show from '../views/Show.vue';
 import Edit from '../views/Edit.vue';
-import ShareView from '../views/ShareView .vue';
+import ShareView from '../views/ShareView.vue';
 import Todos from '../components/Todos.vue';
 
 Vue.use(Router)
 
   const routes = [
-    {
-      path: '*', // redirects bad urls back to login
-      redirect: '/login'
-    },
+    // {
+    //   path: '*', // redirects bad urls back to login
+    //   redirect: '/login'
+    // },
     {
       path: '/',
       redirect: '/login'
@@ -44,7 +44,10 @@ Vue.use(Router)
     {
       path: '/share-view/:id',
       name: 'ShareView',
-      component: ShareView
+      component: ShareView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/wishlist',

@@ -10,7 +10,6 @@ import New from '../views/New.vue';
 import Show from '../views/Show.vue';
 import Edit from '../views/Edit.vue';
 import ShareView from '../views/ShareView.vue';
-import Todos from '../components/Todos.vue';
 
 Vue.use(Router)
 
@@ -80,14 +79,6 @@ Vue.use(Router)
       meta: {
         requiresAuth: true
       }
-    },
-    {
-      path: '/todo',
-      name: 'Todos',
-      component: Todos,
-      meta: {
-          requiresAuth: true
-      }
     }
 ]
 
@@ -102,7 +93,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
   if (requiresAuth && !currentUser) next('login');
-  else if (!requiresAuth && currentUser) next('home');
+  else if (!requiresAuth && currentUser) next('wishlist');
   else next();
 });
 

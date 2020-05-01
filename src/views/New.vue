@@ -1,16 +1,15 @@
 <template>
   <div class="centeredContainer">
     <section class="section">
-      <b-button type="is-primary" @click="logout" rounded>Logout</b-button>
       <h1 class="title">Add a new gift for yourself</h1>
       <div class="box has-text-centered">
       <form action="#" @submit.prevent="onUpload">
           <b-field label="Name" custom-class="is-large">
-            <b-input placeholder="what do you want bby grl?" v-model="wishlist.name" rounded/>
+            <b-input placeholder="What do you want?" v-model="wishlist.name" rounded/>
           </b-field>
 
           <b-field label="Url of the item" custom-class="is-large">
-            <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
+            <b-input placeholder="Link" v-model="wishlist.itemurl" rounded/>
           </b-field>
 
           <b-field label="Find Image">
@@ -26,7 +25,7 @@
               <img class="preview" :src="picture">
           </div>
 
-          <b-button type="is-primary" rounded>Submit</b-button><br/>
+          <button type="is-primary">Submit</button><br/>
           <router-link to="/wishlist">Return</router-link>
       </form>
       </div>

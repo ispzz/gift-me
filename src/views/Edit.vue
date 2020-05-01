@@ -10,7 +10,7 @@
           </b-field>
 
           <b-field label="Url of the item" custom-class="is-large">
-            <b-input placeholder="give us that link bb" v-model="wishlist.itemurl" rounded/>
+            <b-input v-model="wishlist.itemurl" rounded/>
           </b-field>
 
           <b-field label="Find Image">
@@ -26,7 +26,7 @@
               <img class="preview" :src="picture">
           </div>
 
-          <button type="is-primary" rounded>Submit</button><br/>
+          <button type="is-primary">Submit</button><br/>
           <router-link to="/wishlist">Return</router-link>
       </form>
       </div>

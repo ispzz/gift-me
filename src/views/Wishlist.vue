@@ -88,7 +88,7 @@
         @click.prevent="deleteWish(wishlist.id)"
         :href="`/wishlist/${wishlist.id}`"
         >
-          Destroy
+          Delete
         </a>
       </footer>
      </div>

@@ -1,10 +1,10 @@
 <template>
   <div class="centeredContainer">
     <section class="section">
-      <b-button type="is-primary" @click="logout" rounded>Logout</b-button>
+      <!-- <b-button type="is-primary" @click="logout" rounded>Logout</b-button> -->
       <h1 class="title">Edit</h1>
       <div class="box has-text-centered">
-      <form action="#" @submit.prevent="updateWish">
+      <form @submit.prevent="updateWish">
           <b-field label="Name" custom-class="is-large">
             <b-input :value="wishlist.name" v-model="wishlist.name" rounded/>
           </b-field>
@@ -19,14 +19,14 @@
 
           <b-field>
             <p>Progress: {{uploadValue.toFixed()+"%"}}
-            <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
+            <progress type="is-danger" id="progress" :value="uploadValue" max="100" ></progress>  </p>
           </b-field>
 
           <div v-if="imageData!=null">
               <img class="preview" :src="picture">
           </div>
 
-          <b-button type="is-primary" rounded>Submit</b-button><br/>
+          <button type="is-primary" rounded>Submit</button><br/>
           <router-link to="/wishlist">Return</router-link>
       </form>
       </div>
@@ -82,6 +82,7 @@
         this.imageData = event.target.files[0];
       },
       updateWish() {
+        console.log("HELLOOO");
         const id = this.$route.params.id;
         this.picture=null;
         const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);

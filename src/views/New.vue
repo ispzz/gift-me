@@ -19,7 +19,7 @@
 
           <b-field>
             <p>Progress: {{uploadValue.toFixed()+"%"}}
-            <b-progress type="is-danger" id="progress" :value="uploadValue" max="100" ></b-progress>  </p>
+            <progress type="is-danger" id="progress" :value="uploadValue" max="100" ></progress>  </p>
           </b-field>
 
           <div v-if="imageData!=null">

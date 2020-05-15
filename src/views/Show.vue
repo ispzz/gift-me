@@ -13,19 +13,17 @@
       I would really love this item !
     </div>
   </div>
-  <footer class="card-footer">
-    <a class="card-footer-item">
-      <router-link :to="{ name: 'edit', params: { id: wishlist.id } }">
-        Edit
-      </router-link>
-    </a>
-  </footer>
 </div>
   </div>
 </template>
 
 <script>
-  import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/database';
+import 'firebase/functions';
   export default {
     name: 'show',
     data() {

@@ -1,9 +1,15 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import firebase from 'firebase';
 import Buefy from 'buefy';
 import Clipboard from 'v-clipboard';
+
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/database';
+import 'firebase/functions';
 
 Vue.use(Clipboard)
 

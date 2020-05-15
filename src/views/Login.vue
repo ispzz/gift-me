@@ -20,7 +20,13 @@
 </template>
 
 <script>
-  import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/database';
+import 'firebase/functions';
+import 'firebase/analytics';
 
   export default {
     name: 'login',

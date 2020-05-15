@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firebase from 'firebase'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/database';
+import 'firebase/functions';
 
-import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Wishlist from '../views/Wishlist.vue'
@@ -21,14 +25,6 @@ Vue.use(Router)
     {
       path: '/',
       redirect: '/login'
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home,
-      meta: {
-        requiresAuth: true
-      }
     },
     {
       path: '/login',

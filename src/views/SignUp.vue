@@ -1,31 +1,33 @@
 <template>
   <div class="centeredContainer">
     <section class="section">
-      <div class="box has-text-centered">
-        <h1 class="title">Let's create a new account!</h1>
-        <b-notification
-              v-if="errorsPresent"
-              type="is-danger"
-              aria-close-label="Close notification"
-              role="alert">
-              {{errorMessage}}
-          </b-notification>
+      <form @submit.prevent="signUp">
+        <div class="box has-text-centered">
+          <h1 class="title">Let's create a new account!</h1>
+          <b-notification
+                v-if="errorsPresent"
+                type="is-danger"
+                aria-close-label="Close notification"
+                role="alert">
+                {{errorMessage}}
+            </b-notification>
 
-        <b-field label="Display Name">
-          <b-input v-model="displayName" placeholder="Tom Nook" rounded></b-input>
-        </b-field>
+          <b-field label="Display Name">
+            <b-input v-model="displayName" placeholder="Tom Nook" rounded></b-input>
+          </b-field>
 
-        <b-field label="Email">
-          <b-input v-model="email" placeholder="...@gmail.com" rounded></b-input>
-        </b-field>
+          <b-field label="Email">
+            <b-input v-model="email" placeholder="...@gmail.com" rounded></b-input>
+          </b-field>
 
-        <b-field label="Password">
-          <b-input v-model="password" type="password" placeholder="password" rounded></b-input>
-        </b-field>
+          <b-field label="Password">
+            <b-input v-model="password" type="password" placeholder="password" rounded></b-input>
+          </b-field>
 
-        <b-button size="is-medium" @click="signUp" type="is-primary" rounded>Create</b-button>
-        <p><span>... or go back to <router-link to="/login">login</router-link></span></p>
-      </div>
+          <b-button size="is-medium" type="is-primary" rounded>Create</b-button>
+          <p><span>... or go back to <router-link to="/login">login</router-link></span></p>
+        </div>
+      </form>
     </section>
   </div>
 
@@ -61,29 +63,11 @@
               console.log(error);
             });
 
-            // get user data
-            // const userData = userCreate.user
-            // const userUID = userData.uid;
-            // const email = this.email;
-            //
-            // console.log(userUID);
-            // console.log(email);
-            //
-            // // set up user collection
-            // const account = {
-            //   useruid: userUID,
-            //   wishlist: {}
-            // }
-            //
-            // firebase.firestore().collection('accounts').doc(userUID).set(account);
-
-            // this.$router.replace('wishlist')
           },
           (err) => {
             this.errorsPresent = true;
             this.errorMessage = err.message;
             console.log(err.message);
-            // alert('Whoopsies. ' +err.message)
           }
         );
       }

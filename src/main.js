@@ -16,8 +16,7 @@ Vue.config.productionTip = false;
 
 let app = '';
 
-// Your web app's Firebase configuration
-// add this to it's own file later thnxxx XX GOSSIP GIRL
+// Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyDOyNRmRrfULvNKhzbrCE5pTkWNTKLHeQU",
     authDomain: "buy-it-plz.firebaseapp.com",

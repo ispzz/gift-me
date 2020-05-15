@@ -82,7 +82,6 @@
         this.imageData = event.target.files[0];
       },
       updateWish() {
-        console.log("HELLOOO");
         const id = this.$route.params.id;
         this.picture=null;
         const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
@@ -109,21 +108,6 @@
           });
         }
         );
-        // const id = this.$route.params.id;
-        // firebase
-        //   .firestore()
-        //   .collection("accounts")
-        //   .doc(firebase.auth().currentUser.uid)
-        //   .collection("wishlists")
-        //   .doc(id)
-        //   .update({
-        //     name: this.wishlist.name,
-        //     image: this.wishlist.image,
-        //     itemurl: this.wishlist.itemurl,
-        //     imageName: this.wishlist.imageName
-        //   }).then(() => {
-        //     this.$router.push({ name: 'show', params: { id: this.$route.params.id } });
-        //   })
       }
     }
   }

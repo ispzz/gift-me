@@ -1,6 +1,6 @@
 <template>
  <section class="section">
-   <h1 class="title">I like it ...</h1>
+   <h1 class="title">The gifts I would love !</h1>
    <div class="wrapper">
      <div class="card" v-for="wishlist in wishlists" :key="wishlist.id">
        <header class="card-header">

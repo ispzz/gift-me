@@ -8,7 +8,11 @@
             <b-input placeholder="What do you want?" v-model="wishlist.name" rounded/>
           </b-field>
 
-          <b-field label="Url of the item" custom-class="is-large">
+          <b-field
+          label="Item Link"
+          custom-class="is-large"
+          message="Enter the URL of the item you want without https://"
+          >
             <b-input placeholder="Link" v-model="wishlist.itemurl" rounded/>
           </b-field>
 

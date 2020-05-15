@@ -12,12 +12,12 @@
               <b-input :value="'https://buy-it-plz.web.app/share-view/' + shareUserId" type="search" icon="magnify" rounded>
               </b-input>
               <p class="control">
-                  <b-button v-clipboard="value" type="is-primary" rounded outlined>Copy</b-button>
+                  <b-button v-clipboard="() => 'https://buy-it-plz.web.app/share-view/' + shareUserId" type="is-primary" rounded outlined>Copy</b-button>
               </p>
           </b-field>
      </div>
     <router-link :to="{ name: 'ShareView', params: { id: this.shareUserId } }">
-       View
+       View your share page
      </router-link>
    </div>
    </div>
@@ -82,8 +82,6 @@
           wishlistsRef.onSnapshot(snap => {
               this.wishlists = [];
               snap.forEach(doc => {
-                console.log(doc.data());
-                console.log(this.wishlists);
                   var wishlist = doc.data();
                   wishlist.id = doc.id;
                   this.wishlists.push(wishlist);

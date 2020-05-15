@@ -2,11 +2,13 @@
   <div class="app">
     <b-navbar type="is-primary" spaced>
             <template slot="brand">
-                    <img
-                        class="logo"
-                        src="https://i.imgur.com/E0PEG10.png"
-                        alt="Lightweight UI components for Vue.js based on Bulma"
-                    >
+                    <router-link to="/wishlist" >
+                      <img
+                          class="logo"
+                          src="https://i.imgur.com/E0PEG10.png"
+                          alt="Lightweight UI components for Vue.js based on Bulma"
+                      >
+                    </router-link>
             </template>
 
             <template slot="end">

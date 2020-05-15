@@ -46,10 +46,6 @@
 </script>
 
 <style scoped>
-.section {
-  width: 40vw;
-  text-align: center;
-}
 .centeredContainer {
   display: flex;
   align-items: center;
